@@ -1,0 +1,36 @@
+@media (max-width: 1440px) {
+  
+}
+
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 768px) {
+    .form-control, .btn {
+        font-size: 0.75em;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .form-control, .btn {
+        font-size: 0.5em;
+    }
+    .list-group-item {
+        flex-wrap: wrap;
+    }
+
+    .btn-success, .btn-danger {
+        margin-bottom: 10px;
+    }
+
+}
+
+@media (max-width: 320px) {
+
+    .form-control, .btn {
+        font-size: 0.35em;
+    }
+    
+}

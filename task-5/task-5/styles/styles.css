@@ -1,0 +1,53 @@
+:root {
+    --black: #000;
+    --white: #fff;
+    --yellow: #FFD200;
+    --light-grey: #414141;
+    --bootstrap-grey: #dfdfdf;
+}
+  
+body {
+    margin: 0;
+    height: 100%;
+    padding: 10px 10px;
+    font-family: 'RobotoSlab-Regular', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'RobotoSlab-Regular', sans-serif;
+}
+
+.flex {
+    display: flex;
+}
+
+.display-none {
+    display: none;
+}
+
+.visibility-hidden {
+    visibility: hidden;
+}
+
+.robotoslab {
+    font-family: 'RobotoSlab-Regular', sans-serif;
+}
+
+.reset {
+    padding: 0;
+    margin: 0;
+}
+
+.btn-success {
+    margin-right: 1em;
+}
+
+.border-none {
+    border: none;
+}
