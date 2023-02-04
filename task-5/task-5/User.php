@@ -14,7 +14,7 @@ class User {
 
 	private function connect()
 	{
-		$config = require_once 'config.php';
+		$config = require 'config.php';
 		$dsn = 'mysql:host=' . $config['host'] . ';dbname=' . $config['dbname'] . ';charset=' . $config['charset'];
 		$this->link = new PDO($dsn, $config['username'], $config['password']);
 	}
@@ -30,7 +30,7 @@ class User {
 	{
 		$addNewUser = $this->link->prepare("INSERT INTO `users` (`id`, `user`, `score`) VALUES (null, :user, :score)");
 		$addNewUser->execute(['user' => $this->user, 'score' => rand(0, 100)]);
-		$_POST = [];
+//		$_POST = [];
 		header('Location: user.php');
 	}
 
@@ -59,10 +59,16 @@ class User {
         header('Location: user.php');
     }
 }
+var_dump($_POST);
+if (!empty($_POST['user'])) {
+    $arr = explode(',', $_POST['user']);
+	foreach ($arr as $item) {
+		$item = trim($item);
+		$user = new User($item);
+		$user->create();
+	}
 
-if (!empty($_POST['create'])) {
-	$user = new User("$_POST[user]");
-	$user->create();
+
 } else {
 	$user = new User('');
 }
