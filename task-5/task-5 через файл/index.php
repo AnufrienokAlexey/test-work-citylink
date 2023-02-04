@@ -19,20 +19,9 @@
 Все ошибки пользователя при добавлении участников выводить через модальное окно с небольшим описанием, чтобы пользователь мог исправиться. -->
 <?php
 
-$arr = [];
 if (isset($_POST['names'])) {
-	$arr = (explode(',', $_POST['names']));
+    include 'includes/send_participants.php';
 }
-
-$new_array = [];
-foreach ($arr as $key => $item) {
-	$new_array[$key]['id'] = $key;
-	$new_array[$key]['name'] = $item;
-	$new_array[$key]['score'] = rand(0, 100);
-}
-echo '<pre>';
-print_r($new_array);
-echo '</pre>';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -60,23 +49,25 @@ echo '</pre>';
         </div>
     </form>
 
+    <?php if (isset($_POST['participants'])) {?>
     <table class="table">
         <thead>
-            <tr>
-                <th>id</th>
-                <th>Имя</th>
-                <th>Очки</th>
-            </tr>
+        <tr>
+            <th>id</th>
+            <th>Имя</th>
+            <th>Очки</th>
+        </tr>
         </thead>
         <tbody class="table-group-divider">
-		    <?php foreach ($new_array as $item) {?>
-                <tr>
-                    <td><?=$item['id'];?></td>
-                    <td><?=$item['name'];?></td>
-                    <td><?=$item['score'];?></td>
-                </tr>
-			<?php };?>
+		<?php foreach ($_POST['participants'] as $item) {?>
+            <tr>
+                <td><?=$item['id'];?></td>
+                <td><?=$item['name'];?></td>
+                <td><?=$item['score'];?></td>
+            </tr>
+		<?php };?>
         </tbody>
     </table>
+    <?php } ?>
 </body>
 </html>
