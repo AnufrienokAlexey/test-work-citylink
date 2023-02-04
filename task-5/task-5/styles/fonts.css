@@ -1,0 +1,43 @@
+@font-face {
+  font-family: 'RobotoSlab-Thin';
+  src: local('Roboto Slab Thin'),
+      local('RobotoSlab-Thin'),
+      url('../fonts/RobotoSlabThin.woff2') format('woff2'),
+  url('../fonts/RobotoSlabThin.woff') format('woff');
+font-weight: 100;
+font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RobotoSlab-Light';
+  src: local('Roboto Slab Light'),
+      local('RobotoSlab-Light'),
+      url('../fonts/RobotoSlabLight.woff2') format('woff2'),
+  url('../fonts/RobotoSlabLight.woff') format('woff');
+font-weight: 300;
+font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RobotoSlab-Regular';
+  src: local('Roboto Slab Regular'),
+      local('RobotoSlab-Regular'),
+      url('../fonts/RobotoSlabRegular.woff2') format('woff2'),
+  url('../fonts/RobotoSlabRegular.woff') format('woff');
+font-weight: 400;
+font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RobotoSlab-Bold';
+  src: local('Roboto Slab Bold'),
+      local('RobotoSlab-Bold'),
+      url('../fonts/RobotoSlabBold.woff2') format('woff2'),
+  url('../fonts/RobotoSlabBold.woff') format('woff');
+font-weight: 700;
+font-style: normal;
+  font-display: swap;
+}
