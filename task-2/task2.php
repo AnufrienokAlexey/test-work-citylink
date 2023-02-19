@@ -49,7 +49,7 @@ $list = array (
 );
 
 //Решение:
-$str = '09:50-10:30';
+$str = '11:10-09:00';
 
 //Функция validateDate проверяет валидность значений времени и дат
 function validateDate($date, $format = 'Y-m-d H:i:s'): bool
@@ -72,12 +72,10 @@ function validateTime($str): bool
 }
 
 //Функция validateInterval проверяет интервал на добавление интервала $str в существующий массив интервалов $list
-/**
- * @throws Exception
- */
 function validateInterval($str): void
 {
 	global $list;
+	echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Вызов функции с интервалом $str >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" . PHP_EOL;
 	if (validateTime($str)) {
 		foreach ($list as $l) {
 			$time = explode('-', $l);
@@ -88,23 +86,39 @@ function validateInterval($str): void
 			$startStrTime = new DateTimeImmutable($strTime[0]);
 			$endStrTime = new DateTimeImmutable($strTime[1]);
 
-			echo '-----------------------------------------------------' . PHP_EOL;
-			echo "Время начала интервала в массиве list: \$startTime = " . $startTime->format('H:i') . PHP_EOL;
-			echo "Время окончания интервала в массиве list: \$endTime = " . $endTime->format('H:i') . PHP_EOL;
-			echo "Время начала искомого интервала: \$startStrTime = " . $startStrTime->format('H:i') . PHP_EOL;
-			echo "Время окончания искомого интервала: \$endStrTime = " . $endStrTime->format('H:i') . PHP_EOL;
+//			Вывод для удобства проверки
+//			echo '-----------------------------------------------------' . PHP_EOL;
+//			echo "Время начала интервала в массиве list: \$startTime = " . $startTime->format('H:i') . PHP_EOL;
+//			echo "Время окончания интервала в массиве list: \$endTime = " . $endTime->format('H:i') . PHP_EOL;
+//			echo "Время начала искомого интервала: \$startStrTime = " . $startStrTime->format('H:i') . PHP_EOL;
+//			echo "Время окончания искомого интервала: \$endStrTime = " . $endStrTime->format('H:i') . PHP_EOL;
 
-			if (($startStrTime >= $startTime) AND ($startStrTime < $endTime) OR
-				(($endStrTime > $startTime) AND ($endStrTime <= $endTime))){
+			if (
+				(($startStrTime >= $startTime) AND ($startStrTime < $endTime))
+				OR
+				(($endStrTime > $startTime) AND ($endStrTime <= $endTime))
+				OR
+				(($startStrTime < $startTime) AND ($endStrTime >= $endTime))
+				OR
+				(($startStrTime < $startTime) AND ($endStrTime < $startStrTime))
+			){
 				echo "\"$l\" => произошло наложение \"$l\" и \"$str\"" . PHP_EOL;
 			} else {
 				echo "Нет наложения \"$l\" и \"$str\"" . PHP_EOL;
 			}
 		}
-
 		return;
 	}
-	echo "Проверьте валидность искомого интервала $str.";
+	echo "Проверьте валидность искомого интервала $str." . PHP_EOL;
 }
 
-validateInterval($str);
+validateInterval('08:560-09:00');
+validateInterval('08:00-08:59');
+validateInterval('08:00-09:00');
+validateInterval('08:59-11:01');
+validateInterval('09:00-11:00');
+validateInterval('09:01-10:59');
+validateInterval('11:00-09:00');
+validateInterval('11:01-08:59');
+
+
