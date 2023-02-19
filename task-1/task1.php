@@ -79,93 +79,98 @@ $workers = array(
 		'area_name' => 'Центр', //14
 	),
 );
+//Решение:
 
-//Решение - функция find с аргументом $area - название района
-function findWorker(string | array $value) {
-	global $workers;
-
-	if (is_array($value)) {
-		foreach ($value as $v) {
-			foreach ($workers as $w) {
-				if ($w['area_name'] === $v) {
-					echo 'Найден сотрудник соседнего района "' . $v . '" : ' . $w['login'] . PHP_EOL;
-				}
-			}
+//Функция printNearArray выводит список соседних районов (сделал для удобства проверки).
+function printNearArray(array $nearArray, string $area): void
+{
+	if ($nearArray) {
+		echo "Найдены следующие районы, соседние с районом \"$area\":" . PHP_EOL;
+		foreach ($nearArray as $n) {
+			echo "\"$n\"" . PHP_EOL;
 		}
+		return;
 	}
+	echo "Не найдено ни одного соседнего района с районом \"$area\"." . PHP_EOL;
+}
+
+//Функция findWorker выводит логин сотрудника искомого района и логины сотрудников соседних районов.
+function findWorker(string | array $value): void
+{
+	global $workers;
 
 	if (is_string($value)) {
 		foreach ($workers as $worker) {
 			if ($worker['area_name'] === $value) {
-				echo 'Найден сотрудник данного района "' . $value . '" : ' . $worker['login'] . PHP_EOL;
+				echo "Найден сотрудник данного района \"$value\": \"" . $worker['login'] . "\"" . PHP_EOL;
+				return;
+			}
+		}
+		echo "В данном районе \"$value\" нет сотрудников." . PHP_EOL;
+	}
+
+	if (is_array($value)) {
+		foreach ($value as $v) {
+			foreach ($workers as $worker) {
+				if ($worker['area_name'] === $v) {
+					echo "Найден сотрудник соседнего района \"$v\": \"" . $worker['login'] . "\"" . PHP_EOL;
+				}
 			}
 		}
 	}
 }
-function find($area)
+
+//Функция find с параметром $area - название района
+function find($area): void
 {
 	global $areas;
 	global $nearby;
-	global $workers;
 
-//	foreach ($workers as $worker) {
-//		if ($worker['area_name'] === $area) {
-//			echo 'Найден сотрудник данного района "' . $area . '" : ' . $worker['login'] . PHP_EOL;
-//		}
-//	}
-
-	$arr = [];
-	$number_area = array_search($area, $areas);
+	$arrayKeysOfNearby = []; //$arrayKeysOfNearby - массив ключей массива $nearby, в значениях которого есть искомый район
+	$indexOfAreas = array_search($area, $areas);
 	foreach ($nearby as $near) {
-		$number_near = array_search($number_area, $near);
-
-		if ($number_near > -1) {
-			$a = array_search($near, $nearby);
-			$arr[] = $a;
+		if (array_search($indexOfAreas, $near) > -1) {
+			$arrayKeysOfNearby[] = array_search($near, $nearby);
 		}
 	}
 
-	$result = [];
+	$arrayValuesOfNearby = []; //$arrayValuesOfNearby - массив значений массива $nearby, в значениях которого есть искомый район
 	foreach ($nearby as $key => $n) {
-		if(array_search($key, $arr, true)) {
-			$result[] = $n;
+		if(array_search($key, $arrayKeysOfNearby, true)) {
+			$arrayValuesOfNearby[] = $n;
 		}
 	}
-	$a = [];
-	foreach ($result as $item) {
+
+	$arr = []; //Пересобираем двухмерный массив $arrayValuesOfNearby в одномерный $arr
+	foreach ($arrayValuesOfNearby as $item) {
 		foreach ($item as $i) {
-			$a[] = $i;
+			$arr[] = $i;
 		}
 	}
 
-	$new_a = array_unique($a, SORT_NUMERIC);
-	$new_a = array_diff($new_a, array($number_area));
-	$new_arr = [];
+	//Убираем из массива повторяющиеся значения районов и убираем из массива искомый район, так как мы создаем массив
+	$numbersOfNearArray = array_diff(array_unique($arr, SORT_NUMERIC), array($indexOfAreas)); //$numbersOfNearArray - массив номеров районов, соседних с искомым
+	$nearArray = []; //$nearArray - - массив названий районов, соседних с искомым
 
-	foreach ($new_a as $key => $value) {
+	foreach ($numbersOfNearArray as  $value) {
 		foreach ($areas as $k => $a) {
 			if ($value === $k) {
-				$new_arr[] = $a;
+				$nearArray[] = $a;
 			}
 		}
 	}
+
 	findWorker($area);
-	findWorker($new_arr);
-//	foreach ($new_arr as $value) {
-//		foreach ($workers as $worker) {
-//			if ($worker['area_name'] === $value) {
-//				echo 'Найден сотрудник соседнего района "' . $value . '" : ' . $worker['login'] . PHP_EOL;
-//			}
-//		}
-//	}
+	printNearArray($nearArray, $area);
+	findWorker($nearArray);
 }
 
 find('Первомайский');
 echo PHP_EOL;
 find('Сулажгора');
 echo PHP_EOL;
-//find('Кукковка');
-//echo PHP_EOL;
-//find('Древлянка');
-//echo PHP_EOL;
-//find('Москва');
+find('Кукковка');
+echo PHP_EOL;
+find('Древлянка');
+echo PHP_EOL;
+find('Москва');
