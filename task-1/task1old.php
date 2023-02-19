@@ -81,91 +81,49 @@ $workers = array(
 );
 
 //Решение - функция find с аргументом $area - название района
-function findWorker(string | array $value) {
+function find($area)
+{
 	global $workers;
+	global $areas;
+	global $nearby;
 
-	if (is_array($value)) {
-		foreach ($value as $v) {
-			foreach ($workers as $w) {
-				if ($w['area_name'] === $v) {
-					echo 'Найден сотрудник соседнего района "' . $v . '" : ' . $w['login'] . PHP_EOL;
+	if (array_search($area, $areas)) {
+		foreach ($workers as $worker) {
+			if ($worker['area_name'] === $area) {
+				echo 'Найден сотрудник данного района "' . $area . '" : ' . $worker['login'] . PHP_EOL;
+				return;
+			}
+		}
+
+		echo 'В этом районе "' . $area . '" нет сотрудников' . PHP_EOL;
+
+		foreach ($nearby as $near) {
+			$is_find = 0;
+			$near_area = array_search(array_search($area, $areas), $near);
+			if ($near_area > -1) {
+				foreach ($workers as $worker) {
+					if ($worker['area_name'] === $areas[array_search($near, $nearby)]) {
+						$is_find = 1;
+						echo 'Найден сотрудник соседнего района "' . $areas[array_search($near, $nearby)] . '" : ' . $worker['login'] . PHP_EOL;
+					}
+				}
+
+				if ($is_find != 1) {
+					echo 'В соседнем районе "' . $areas[array_search($near, $nearby)] . '" нет сотрудников' . PHP_EOL;
 				}
 			}
 		}
+	} else {
+		echo 'Не существует такого района "' . $area . '", проверьте правильность написания';
 	}
-
-	if (is_string($value)) {
-		foreach ($workers as $worker) {
-			if ($worker['area_name'] === $value) {
-				echo 'Найден сотрудник данного района "' . $value . '" : ' . $worker['login'] . PHP_EOL;
-			}
-		}
-	}
-}
-function find($area)
-{
-	global $areas;
-	global $nearby;
-	global $workers;
-
-//	foreach ($workers as $worker) {
-//		if ($worker['area_name'] === $area) {
-//			echo 'Найден сотрудник данного района "' . $area . '" : ' . $worker['login'] . PHP_EOL;
-//		}
-//	}
-
-	$arr = [];
-	$number_area = array_search($area, $areas);
-	foreach ($nearby as $near) {
-		$number_near = array_search($number_area, $near);
-
-		if ($number_near > -1) {
-			$a = array_search($near, $nearby);
-			$arr[] = $a;
-		}
-	}
-
-	$result = [];
-	foreach ($nearby as $key => $n) {
-		if(array_search($key, $arr, true)) {
-			$result[] = $n;
-		}
-	}
-	$a = [];
-	foreach ($result as $item) {
-		foreach ($item as $i) {
-			$a[] = $i;
-		}
-	}
-
-	$new_a = array_unique($a, SORT_NUMERIC);
-	$new_a = array_diff($new_a, array($number_area));
-	$new_arr = [];
-
-	foreach ($new_a as $key => $value) {
-		foreach ($areas as $k => $a) {
-			if ($value === $k) {
-				$new_arr[] = $a;
-			}
-		}
-	}
-	findWorker($area);
-	findWorker($new_arr);
-//	foreach ($new_arr as $value) {
-//		foreach ($workers as $worker) {
-//			if ($worker['area_name'] === $value) {
-//				echo 'Найден сотрудник соседнего района "' . $value . '" : ' . $worker['login'] . PHP_EOL;
-//			}
-//		}
-//	}
 }
 
 find('Первомайский');
 echo PHP_EOL;
 find('Сулажгора');
 echo PHP_EOL;
-//find('Кукковка');
-//echo PHP_EOL;
-//find('Древлянка');
-//echo PHP_EOL;
-//find('Москва');
+find('Кукковка');
+echo PHP_EOL;
+find('Древлянка');
+echo PHP_EOL;
+find('Москва');
