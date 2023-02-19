@@ -1,5 +1,3 @@
-﻿<?php
-
 /**
  * @charset UTF-8
  *
@@ -47,26 +45,3 @@ $list = array (
 	'20:30-21:30',
 	'21:30-22:30',
 );
-$str = '15:50-16:30';
-
-function validateDate($date, $format = 'Y-m-d H:i:s'): bool
-{
-	$d = DateTime::createFromFormat($format, $date);
-	return $d && $d->format($format) == $date;
-}
-
-function validateTime($str): bool
-{
-	$is_validate = true;
-	$timeArray = explode('-', $str);
-	foreach ($timeArray as $time) {
-		if (!(validateDate($time, 'H:i'))) {
-			$is_validate = false;
-		}
-	}
-	return $is_validate;
-}
-
-
-
-//var_dump(validateTime($str));
