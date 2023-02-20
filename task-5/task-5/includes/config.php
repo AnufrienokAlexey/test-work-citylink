@@ -2,7 +2,7 @@
 
 return [
 	'host' => 'localhost',
-	'dbname' => 'task-5',
+	'dbname' => 'task5',
 	'charset' => 'utf8',
 	'username' => 'root',
 	'password' => ''

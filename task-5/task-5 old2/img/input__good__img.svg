@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="iso-8859-1"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 80 80" style="enable-background:new 0 0 80 80;" xml:space="preserve" width="80" height="80">
+<g>
+	<path style="fill:#008000;" d="M40,77.5C19.322,77.5,2.5,60.678,2.5,40S19.322,2.5,40,2.5S77.5,19.322,77.5,40S60.678,77.5,40,77.5   z"/>
+	<g>
+		<path style="fill:#5E9C76;" d="M40,3c20.402,0,37,16.598,37,37S60.402,77,40,77S3,60.402,3,40S19.598,3,40,3 M40,2    C19.013,2,2,19.013,2,40s17.013,38,38,38s38-17.013,38-38S60.987,2,40,2L40,2z"/>
+	</g>
+</g>
+<polyline style="fill:none;stroke:#FFFFFF;stroke-width:6;stroke-miterlimit:10;" points="22.357,40.104 34.049,51.797   60.357,25.489 "/>
+</svg>

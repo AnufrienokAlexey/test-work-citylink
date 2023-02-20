@@ -1,0 +1,88 @@
+:root {
+    --black: #000;
+    --white: #fff;
+    --yellow: #FFD200;
+    --light-grey: #414141;
+    --bootstrap-grey: #dfdfdf;
+}
+
+table {
+    border-collapse: collapse;
+    width: 500px;
+}
+th {
+    background-color: #54585d;
+    border: 1px solid #54585d;
+}
+th:hover {
+    background-color: #64686e;
+}
+th a {
+    display: block;
+    text-decoration:none;
+    padding: 10px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 13px;
+}
+th a i {
+    margin-left: 5px;
+    color: rgba(255,255,255,0.4);
+}
+td {
+    padding: 10px;
+    color: #636363;
+    border: 1px solid #dddfe1;
+}
+tr {
+    background-color: #ffffff;
+}
+tr .highlight {
+    background-color: #f9fafb;
+}
+  
+body {
+    margin: 0;
+    height: 100%;
+    padding: 10px 10px;
+    font-family: 'RobotoSlab-Regular', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'RobotoSlab-Regular', sans-serif;
+}
+
+.flex {
+    display: flex;
+}
+
+.display-none {
+    display: none;
+}
+
+.visibility-hidden {
+    visibility: hidden;
+}
+
+.robotoslab {
+    font-family: 'RobotoSlab-Regular', sans-serif;
+}
+
+.reset {
+    padding: 0;
+    margin: 0;
+}
+
+.btn-success {
+    margin-right: 1em;
+}
+
+.border-none {
+    border: none;
+}
