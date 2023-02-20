@@ -1,6 +1,5 @@
 <?php
 include 'User.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="ru">
