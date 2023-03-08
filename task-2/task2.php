@@ -101,6 +101,8 @@ function validateInterval($str): void
 				(($startStrTime < $startTime) AND ($endStrTime >= $endTime))
 				OR
 				(($startStrTime < $startTime) AND ($endStrTime < $startStrTime))
+				OR
+				(($startStrTime > $startTime) AND ($endStrTime < $startStrTime) AND ($endStrTime > $endTime))
 			){
 				echo "\"$l\" => произошло наложение \"$l\" и \"$str\"" . PHP_EOL;
 			} else {
@@ -121,4 +123,4 @@ validateInterval('09:01-10:59');
 validateInterval('11:00-09:00');
 validateInterval('11:01-08:59');
 
-
+validateInterval('23:00-20:30');

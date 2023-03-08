@@ -8114,26 +8114,7 @@ elle, par une sorte de stoïcisme voluptueux, sentir plus
 profondément l'amertume des choses qu'elle allait abandonner? Mais
 elle n'y prenait garde, au contraire; elle vivait comme perdue
 dans la dégustation anticipée de son bonheur prochain. C'était
-avec Rodolphe un éternel sujet de causeries. Elle s'appuyait sur
-son épaule, elle murmurait:
-
--- Hein! quand nous serons dans la malle-poste!... Y songes-tu?
-Est-ce possible? Il me semble qu'au moment où je sentirai la
-voiture s'élancer, ce sera comme si nous montions en ballon, comme
-si nous partions vers les nuages. Sais-tu que je compte les
-jours?... Et toi?
-
-Jamais madame Bovary ne fut aussi belle qu'à cette époque; elle
-avait cette indéfinissable beauté qui résulte de la joie, de
-l'enthousiasme, du succès, et qui n'est que l'harmonie du
-tempérament avec les circonstances. Ses convoitises, ses chagrins,
-l'expérience du plaisir et ses illusions toujours jeunes, comme
-font aux fleurs le fumier, la pluie, les vents et le soleil,
-l'avaient par gradations développée, et elle s'épanouissait enfin
-dans la plénitude de sa nature. Ses paupières semblaient taillées
-tout exprès pour ses longs regards amoureux où la prunelle se
-perdait, tandis qu'un souffle fort écartait ses narines minces et
-relevait le coin charnu de ses lèvres, qu'ombrageait à la lumière
+avec Rodolphe un éternel sujetn charnu de ses lèvres, qu'ombrageait à la lumière
 un peu de duvet noir. On eût dit qu'un artiste habile en
 corruptions avait disposé sur sa nuque la torsade de ses cheveux:
 ils s'enroulaient en une masse lourde, négligemment, et selon les
@@ -9205,6 +9186,30 @@ Et, séparant les syllabes de sa phrase, Homais répéta:
 -- J'en -- ai -- connu.
 
 -- Eh bien! ils avaient tort, dit Bournisien résigné à tout
+entendre.
+
+-- Parbleu! ils en font bien d'autres! exclama l'apothicaire.
+
+-- Monsieur!... reprit l'ecclésiastique avec des yeux si
+farouches, que le pharmacien en fut intimidé.
+
+-- Je veux seulement dire, répliqua-t-il alors d'un ton moins
+brutal, que la tolérance est le plus sûr moyen d'attirer les âmes
+à la religion.
+
+-- C'est vrai! c'est vrai! concéda le bonhomme en se rasseyant sur
+sa chaise.
+
+Mais il n'y resta que deux minutes. Puis, dès qu'il fut parti,
+M. Homais dit au médecin:
+
+-- Voilà ce qui s'appelle une prise de bec! Je l'ai roulé, vous
+avez vu, d'une manière!... Enfin, croyez-moi, conduisez Madame au
+spectacle, ne serait-ce que pour faire une fois dans votre vie
+enrager un de ces corbeaux-là, saprelotte! Si quelqu'un pouvait me
+remplacer, je vous accompagnerais moi-même. Dépêchez-vous! Lagardy
+ne donnera qu'une seule représentation; il est engagé en
+Angleterre à des appointements considérabl- Eh bien! ils avaient tort, dit Bournisien résigné à tout
 entendre.
 
 -- Parbleu! ils en font bien d'autres! exclama l'apothicaire.

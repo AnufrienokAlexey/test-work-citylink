@@ -127,3 +127,5 @@ echo PHP_EOL;
 find('Древлянка');
 echo PHP_EOL;
 find('Москва');
+echo PHP_EOL;
+find('Ключевая');
